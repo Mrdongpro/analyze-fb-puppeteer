@@ -27,14 +27,3 @@ paths:
                 properties:
                   content:
                     type: string
-                    description: Nội dung văn bản bài viết
-        '500':
-          description: Lỗi khi xử lý liên kết
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    description: Mô tả lỗi
