@@ -1,21 +1,40 @@
 openapi: 3.1.0
 info:
-  title: Analyze Facebook Link
-  version: "1.0.0"
-  description: API phân tích nội dung bài viết Facebook từ link công khai
+  title: Phân Tích Link Facebook
+  description: Đọc nội dung bài viết Facebook: văn bản, ảnh/video, tương tác và bình luận đầu tiên.
+  version: 1.0.0
 servers:
   - url: https://analyze-fb-puppeteer-production.up.railway.app
 paths:
-  /query_facebook:
+  /analyze_fb:
     get:
-      summary: Đọc nội dung bài viết Facebook
+      summary: Phân tích link Facebook
+      description: Truy xuất nội dung bài viết, bao gồm văn bản, ảnh/video, số lượt like/share/comment và các bình luận đầu tiên.
       parameters:
         - name: url
           in: query
           required: true
-          description: Link Facebook cần phân tích
+          description: Link bài viết Facebook
           schema:
             type: string
       responses:
-        "200":
-          description: Nội dung bài viết đã được phân tích
+        '200':
+          description: Kết quả phân tích thành công
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: string
+                    description: Nội dung văn bản bài viết
+        '500':
+          description: Lỗi khi xử lý liên kết
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Mô tả lỗi
