@@ -1,0 +1,21 @@
+openapi: 3.1.0
+info:
+  title: Analyze Facebook Link
+  version: "1.0.0"
+  description: API phân tích nội dung bài viết Facebook từ link công khai
+servers:
+  - url: https://analyze-fb-puppeteer-production.up.railway.app
+paths:
+  /query_facebook:
+    get:
+      summary: Đọc nội dung bài viết Facebook
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: Link Facebook cần phân tích
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Nội dung bài viết đã được phân tích
