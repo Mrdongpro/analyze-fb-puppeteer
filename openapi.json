@@ -1,0 +1,49 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Phân Tích Link Facebook",
+    "description": "API đọc toàn bộ bài viết Facebook bằng Puppeteer headless: văn bản, ảnh/video, tương tác và bình luận đầu tiên.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://analyze-fb-puppeteer-production.up.railway.app"
+    }
+  ],
+  "paths": {
+    "/analyze_fb": {
+      "get": {
+        "summary": "Phân tích link Facebook",
+        "description": "Truy xuất nội dung bài viết, bao gồm văn bản, ảnh/video, số lượt like/share/comment và các bình luận đầu tiên.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "Link bài viết Facebook",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Kết quả phân tích thành công",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
