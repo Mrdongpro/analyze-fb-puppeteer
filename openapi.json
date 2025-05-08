@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Phân Tích Link Facebook",
-    "description": "API đọc toàn bộ bài viết Facebook bằng Puppeteer headless: văn bản, ảnh/video, tương tác và bình luận đầu tiên.",
+    "description": "API đọc toàn bộ bài viết Facebook bằng Puppeteer headless",
     "version": "1.0.0"
   },
   "servers": [
