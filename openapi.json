@@ -14,13 +14,13 @@
     "/analyze_fb": {
       "get": {
         "summary": "Phân tích link Facebook",
-        "description": "Truy xuất nội dung bài viết: văn bản, ảnh/video, số like/share/comment, bình luận đầu tiên.",
+        "description": "Truy xuất nội dung bài viết, bao gồm văn bản, ảnh/video và số liệu tương tác",
         "parameters": [
           {
             "name": "url",
             "in": "query",
-            "required": true,
             "description": "Link bài viết Facebook",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -28,7 +28,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Kết quả phân tích",
+            "description": "Kết quả phân tích thành công",
             "content": {
               "application/json": {
                 "schema": {
